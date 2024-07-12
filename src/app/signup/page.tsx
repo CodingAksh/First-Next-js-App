@@ -26,7 +26,7 @@ const page = () => {
       const response = await axios.post('/Api/Users/signup', user)
       console.log(response)
 
-      toast.success('Successfully registered!')
+      toast.success('Successfully registered user!')
       router.push('/login')
 
     } catch (error: any) {
