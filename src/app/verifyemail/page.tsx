@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 
 const VerifyEmail = () => {
 
@@ -10,29 +10,26 @@ const VerifyEmail = () => {
     const [verified, setVerified] = useState(false)
     const [error, setError] = useState(false)
 
-    const verifyUserEmail = async () => {
+    const verifyUserEmail = useCallback(async () => {
         try {
             await axios.post('/Api/Users/sendEmail', {token})
             setVerified(true);
         } catch (error:any) {
             setError(true);
             console.log(error.response);
-            
         }
-
-    }
+    }, [token]);
 
     useEffect(() => {
         const urlToken = window.location.search.split("=")[1];
         setToken(urlToken || "");
     }, []);
 
-
     useEffect(() => {
-        if(token.length > 0) {
-            verifyUserEmail()
+        if (token.length > 0) {
+            verifyUserEmail();
         }
-    }, [token]);
+    }, [token, verifyUserEmail]);
 
     return (
         <div className='h-[100vh] flex flex-col gap-3 justify-center items-center '>
@@ -50,7 +47,6 @@ const VerifyEmail = () => {
                     <Link className='bg-white px-3 py-2 text-black text-xl' href='/login'>Do login</Link>
                 </div>
             )}
-
         </div>
     )
 }
