@@ -12,9 +12,9 @@ const VerifyEmail = () => {
 
     const verifyUserEmail = useCallback(async () => {
         try {
-            await axios.post('/Api/Users/sendEmail', {token})
+            await axios.post('/Api/Users/sendEmail', { token })
             setVerified(true);
-        } catch (error:any) {
+        } catch (error: any) {
             setError(true);
             console.log(error.response);
         }
@@ -43,10 +43,11 @@ const VerifyEmail = () => {
 
             {verified && (
                 <div className='max-h-screen flex justify-center items-center'>
-                    <h1 className='text-4xl text-orange-700'>Your Email is verified Now</h1>
+                    <h1 className='text-4xl text-orange-700'>Your Email is verified now</h1>
                     <Link className='bg-white px-3 py-2 text-black text-xl' href='/login'>Do login</Link>
                 </div>
             )}
+
         </div>
     )
 }
