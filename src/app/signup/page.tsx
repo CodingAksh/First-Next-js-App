@@ -27,7 +27,7 @@ const page = () => {
       console.log(response)
 
       toast.success('Successfully registered user!')
-      router.push('/login')
+      router.push('/checkverify')
 
     } catch (error: any) {
       console.log("signUp error: ", error.message)

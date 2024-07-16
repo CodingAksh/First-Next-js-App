@@ -34,7 +34,7 @@ const page = () => {
   }
 
   return (
-    <div className='min-h-screen flex flex-col space-y-3 justify-center items-center border-2'>
+    <div className='min-h-screen flex flex-col space-y-3 justify-center items-center'>
       <h1 className='text-3xl mb-5'>Login page</h1>
       <form onSubmit={loginuser} className='flex space-y-3 flex-col justify-center items-center'>
         <label htmlFor='email'>Email: </label>

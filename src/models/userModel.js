@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
-    email:{
+    email: {
         required: [true, "please enter some email address"],
         type: String,
         unique: true,
@@ -15,12 +15,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: 8,
     },
-    role:{
+    isVerfied: {
+        type: Boolean,
+        default: false,
+    },
+    role: {
         isVerified: true,
         type: Boolean,
         default: false,
     },
-    isAdmin:{
+    isAdmin: {
         type: Boolean,
         default: false,
     },
@@ -30,6 +34,6 @@ const userSchema = new mongoose.Schema({
     verifyTokenExpiry: Date,
 })
 
-const User =  mongoose.models.users || mongoose.model("users", userSchema)
+const User = mongoose.models.users || mongoose.model("users", userSchema)
 
 export default User;

@@ -9,7 +9,13 @@ import { useRouter } from 'next/navigation'
 const userProfile = () => {
 
   const router = useRouter()
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({
+    _id: '',
+    username: '',
+    email: '',
+    isAdmin: '',
+    role: ''
+  })
 
 
   const getUseData = async () => {
