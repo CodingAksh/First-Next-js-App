@@ -30,7 +30,7 @@ const VerifyEmail = () => {
 
     useEffect(() => {
         if(token.length > 0) {
-            verifyUserEmail();
+            verifyUserEmail()
         }
     }, [token]);
 
